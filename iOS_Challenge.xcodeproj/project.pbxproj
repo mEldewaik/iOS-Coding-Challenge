@@ -19,6 +19,8 @@
 		1B6BBA76233C0B4300FFBFF2 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B6BBA6B233C0B4300FFBFF2 /* Service.swift */; };
 		1B6BBA77233C0B4300FFBFF2 /* MediaTypeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B6BBA6D233C0B4300FFBFF2 /* MediaTypeCell.swift */; };
 		1B6BBA78233C0B4300FFBFF2 /* AppleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B6BBA6E233C0B4300FFBFF2 /* AppleCell.swift */; };
+		1B6BBA7C233C11DA00FFBFF2 /* Animator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B6BBA7B233C11DA00FFBFF2 /* Animator.swift */; };
+		1B6BBA7F233C12BA00FFBFF2 /* UITableView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B6BBA7E233C12BA00FFBFF2 /* UITableView+Ext.swift */; };
 		A372A6F30943618C82AE0DB6 /* Pods_iOS_Challenge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 783B65371BA3E02CACC9EF02 /* Pods_iOS_Challenge.framework */; };
 /* End PBXBuildFile section */
 
@@ -38,6 +40,8 @@
 		1B6BBA6B233C0B4300FFBFF2 /* Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		1B6BBA6D233C0B4300FFBFF2 /* MediaTypeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaTypeCell.swift; sourceTree = "<group>"; };
 		1B6BBA6E233C0B4300FFBFF2 /* AppleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppleCell.swift; sourceTree = "<group>"; };
+		1B6BBA7B233C11DA00FFBFF2 /* Animator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animator.swift; sourceTree = "<group>"; };
+		1B6BBA7E233C12BA00FFBFF2 /* UITableView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Ext.swift"; sourceTree = "<group>"; };
 		6087860472E367E4CC6CC115 /* Pods-iOS_Challenge.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS_Challenge.debug.xcconfig"; path = "Target Support Files/Pods-iOS_Challenge/Pods-iOS_Challenge.debug.xcconfig"; sourceTree = "<group>"; };
 		783B65371BA3E02CACC9EF02 /* Pods_iOS_Challenge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOS_Challenge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -84,6 +88,7 @@
 		1B6BBA4C233C09E300FFBFF2 /* iOS_Challenge */ = {
 			isa = PBXGroup;
 			children = (
+				1B6BBA7D233C12AA00FFBFF2 /* Extensions */,
 				1B6BBA66233C0B4300FFBFF2 /* Model */,
 				1B6BBA69233C0B4300FFBFF2 /* Service */,
 				1B6BBA5F233C0B4300FFBFF2 /* Supporting Files */,
@@ -103,6 +108,7 @@
 				1B6BBA4D233C09E300FFBFF2 /* AppDelegate.swift */,
 				1B6BBA60233C0B4300FFBFF2 /* ProgressView.swift */,
 				1B6BBA65233C0B4300FFBFF2 /* Helper.swift */,
+				1B6BBA7B233C11DA00FFBFF2 /* Animator.swift */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -147,6 +153,14 @@
 				1B6BBA51233C09E300FFBFF2 /* Main.storyboard */,
 			);
 			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		1B6BBA7D233C12AA00FFBFF2 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				1B6BBA7E233C12BA00FFBFF2 /* UITableView+Ext.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		F11547EA0605562C3291C7D7 /* Frameworks */ = {
@@ -272,6 +286,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B6BBA7F233C12BA00FFBFF2 /* UITableView+Ext.swift in Sources */,
+				1B6BBA7C233C11DA00FFBFF2 /* Animator.swift in Sources */,
 				1B6BBA76233C0B4300FFBFF2 /* Service.swift in Sources */,
 				1B6BBA50233C09E300FFBFF2 /* ViewController.swift in Sources */,
 				1B6BBA75233C0B4300FFBFF2 /* ServerApiServant.swift in Sources */,

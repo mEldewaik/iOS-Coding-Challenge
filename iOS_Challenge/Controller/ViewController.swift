@@ -39,7 +39,7 @@ class ViewController: UIViewController {
     let screenSize: CGRect = UIScreen.main.bounds
     
     
-    // create tableView
+    // ------------------ Create tableView ------------------------------------ //
     
     fileprivate let tableView: UITableView = {
         let tv = UITableView(frame: .zero)
@@ -52,8 +52,21 @@ class ViewController: UIViewController {
         return tv
     }()
     
+    func initTableView() {
+        self.view.addSubview(tableView)
+        tableView.dataSource = self
+        tableView.delegate = self
+        
+        tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 55).isActive = true
+        tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0).isActive = true
+        tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0).isActive = true
+        tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0).isActive = true
+    }
     
-    // create collectionView
+    // ---------------------------------------------------------------------- //
+    
+    
+    // --------- Create collectionView in the top of viewController ----------//
     
     var selectedCollectionCell = 0
     
@@ -81,31 +94,30 @@ class ViewController: UIViewController {
         collectionView.heightAnchor.constraint(equalToConstant: 50).isActive = true
     }
     
-    func initTableView() {
-        self.view.addSubview(tableView)
-        tableView.dataSource = self
-        tableView.delegate = self
-        
-        tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 55).isActive = true
-        tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0).isActive = true
-        tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0).isActive = true
-        tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0).isActive = true
-    }
+    // ---------------------------------------------------------------------- //
+    
+    // This model to parse data from api on it
     
     var model: AppleModel?
+    
+    
+    var shownIndexes : [IndexPath] = []
+    let heightOfCell : CGFloat = 116
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         self.initTableView()
         self.createCollectionView()
-        self.getItunes()
+        self.getItunes(ForMediaType: self.itemsValue[self.selectedCollectionCell])
     }
     
-    func getItunes() {
-        Services.instance.getAppleMedia(view: self.view, forMediaType: self.itemsValue[self.selectedCollectionCell], numberOfResults: "10") { (returnedModel) in
+    
+    // Function that return Media Accourding to Medi type
+    func getItunes(ForMediaType media: String) {
+        Services.instance.getAppleMedia(view: self.view, forMediaType: media, numberOfResults: "10") { (returnedModel) in
             self.model = returnedModel
-            self.tableView.reloadData()
+            self.tableView.reloadWithAnimation()
         }
     }
     
@@ -127,7 +139,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 116
+        return heightOfCell
     }
     
 }
@@ -155,7 +167,7 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, 
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         self.selectedCollectionCell = indexPath.item
-        self.getItunes()
+        self.getItunes(ForMediaType: self.itemsValue[self.selectedCollectionCell])
         self.collectionView.reloadData()
     }
     
@@ -164,5 +176,4 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, 
     }
     
 }
-
 
